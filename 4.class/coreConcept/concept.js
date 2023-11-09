@@ -1,3 +1,2 @@
-var name = "maruf bellah";
-
-console.log(name);
+// 1 ------- variable = variable helps us to make thing dynamic
+let name = "maruf bellah";
