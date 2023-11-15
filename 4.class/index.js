@@ -98,5 +98,37 @@ for (let i = 0; i < allStudents.length; i++) {
 }
 
 function showStudent(email) {
-  console.log("sending email to all student " + " " + email);
+  //   console.log("sending email to all student " + " " + email);
 }
+
+// allStudents.forEach((item) => console.log("email", " " + item.email));
+
+allStudents.forEach((item) => {
+  //   console.log("Eamil" + " " + item.email);
+});
+
+function nameOfFunction(name) {
+  if (!name) {
+    console.log("Please write your name");
+  } else {
+    console.log("Hello" + " " + name);
+  }
+}
+
+nameOfFunction("Maruf Bellah");
+nameOfFunction("Bellah");
+nameOfFunction();
+
+function generateRandomNumberMax(max) {
+  const randomNumber = Math.floor(Math.random() * max);
+  return randomNumber;
+}
+
+console.log(generateRandomNumberMax(1000));
+function generateRandomNumber(min, max) {
+  const randomNumber = Math.floor(Math.random() * min + (max - min));
+  return randomNumber;
+}
+
+console.log(generateRandomNumber(5, 10));
+console.log(generateRandomNumber(15, 100));
