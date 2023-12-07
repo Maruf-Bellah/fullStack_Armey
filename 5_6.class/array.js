@@ -139,3 +139,9 @@ const arr2 = [
 const indexes = arr2.find((index) => index.id == 3);
 const arr3 = arr2.splice(indexes, 1);
 console.log(arr3);
+
+
+let name = "maruf bellah "
+console.log(name);
+
+
