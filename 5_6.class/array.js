@@ -119,4 +119,23 @@ for (let i = 0; i < arr.length; i++) {
   }
   // console.log(arr[i]);
 }
-console.log(newArr);
+// console.log(newArr);
+
+// upadate
+const update = [1, 2, 3, 4, 5, 6];
+update[3] = 1645564;
+// console.log(update);
+
+// এখন যদি ইনডেক্স জানা না থাকে তাহলে প্রথমে আগে ইনডেক্স বের করে নিতে হবে। এরপর আপডেট করা যাবে। যেমন
+
+const arr2 = [
+  { id: 1, value: 10 },
+  { id: 2, value: 20 },
+  { id: 3, value: 30 },
+  { id: 4, value: 40 },
+  { id: 5, value: 50 },
+];
+
+const indexes = arr2.find((index) => index.id == 3);
+const arr3 = arr2.splice(indexes, 1);
+console.log(arr3);
