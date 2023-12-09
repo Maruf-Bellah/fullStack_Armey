@@ -297,16 +297,38 @@ function myReduce(arr, cd, init) {
 
 // এবার একটু আমাদের ফাংশনটা টেস্ট করে দেখি।
 
-const arr = [1, 2, "", false, 3, NaN, false, 4, 5, NaN, 6];
+// const arr = [1, 2, "", false, 3, NaN, false, 4, 5, NaN, 6];
 
-const result = myReduce(
-  arr,
-  (acc, cur) => {
-    if (cur) {
-      acc.push(cur ** 2);
-    }
-    return acc;
-  },
-  []
-);
-console.log(result);
+// const result = myReduce(
+//   arr,
+//   (acc, cur) => {
+//     if (cur) {
+//       acc.push(cur ** 2);
+//     }
+//     return acc;
+//   },
+//   []
+// );
+// console.log(result);
+
+// আমরা আরেকটা উদাহরণ দেখি reduce এর।
+
+const axios = require("axios").default;
+
+const url = "https://jsonplaceholder.typicode.com/posts";
+
+async function getData() {
+  const { data } = await axios.get(url);
+  const result = data.slice(0, 10).map((item) => {
+    return {
+      userId: item.userId,
+      id: item.id,
+      title: item.title,
+    };
+  });
+  return result;
+}
+
+getData()
+  .then((data) => console.log(data))
+  .catch((e) => console.log(e));
