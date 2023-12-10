@@ -284,13 +284,13 @@
 
 // আমরা একটু reduce মেথডের ইমপ্লিমেন্টেশনটা দেখি।
 
-function myReduce(arr, cd, init) {
-  let acc = init;
-  for (let i = 0; i < arr.length; i++) {
-    acc = cd(acc, arr[i], i, arr);
-  }
-  return acc;
-}
+// function myReduce(arr, cd, init) {
+//   let acc = init;
+//   for (let i = 0; i < arr.length; i++) {
+//     acc = cd(acc, arr[i], i, arr);
+//   }
+//   return acc;
+// }
 
 // const sum = myReduce([1, 2, 3, 4], (a, b) => a + b, 0);
 // console.log(sum);
@@ -313,22 +313,67 @@ function myReduce(arr, cd, init) {
 
 // আমরা আরেকটা উদাহরণ দেখি reduce এর।
 
-const axios = require("axios").default;
+// const axios = require("axios").default;
 
-const url = "https://jsonplaceholder.typicode.com/posts";
+// const url = "https://jsonplaceholder.typicode.com/posts";
 
-async function getData() {
-  const { data } = await axios.get(url);
-  const result = data.slice(0, 10).map((item) => {
-    return {
-      userId: item.userId,
-      id: item.id,
-      title: item.title,
-    };
-  });
-  return result;
-}
+// async function getData() {
+//   const { data } = await axios.get(url);
+//   const result = data.slice(0, 10).map((item) => {
+//     return {
+//       userId: item.userId,
+//       id: item.id,
+//       title: item.title,
+//     };
+//   });
+//   return result;
+// }
 
-getData()
-  .then((data) => console.log(data))
-  .catch((e) => console.log(e));
+// getData()
+//   .then((data) => console.log(data))
+//   .catch((e) => console.log(e));
+
+// লাস্ট আরেকটা এক্সাম্পল আমরা দেখি এই reduce মেথডের। ধরুন আমাদের কাছে একটা অ্যারে আছে নামের।
+
+const names = [
+  "Ayman",
+  "Abu Rayhan",
+  "Anik",
+  "Elias Emon",
+  "Engr. Sabbir",
+  "Fahim Faisal",
+  "Feroz Khan",
+  "Habib",
+  "HM Azizul",
+  "Hridoy Saha",
+  "Jahid Hassan",
+  "Johir",
+  "Md Al-Amin",
+  "Md Arafatul",
+  "Md Ashraful",
+  "Parvez",
+];
+
+const namesGroup = {
+  A: ["Ayman", "Abu Rayhan", "Anik"],
+  E: ["Elias Emon", "Engr. Sabbir"],
+  F: ["Fahim Faisal", "Feroz Khan"],
+};
+
+const namesGrouped = names.reduce((acc, cur) => {
+  const firstLetter = cur[0].toUpperCase();
+  if (firstLetter in acc) {
+    acc[firstLetter].push(cur);
+  } else {
+    acc[firstLetter] = [cur];
+  }
+  return acc;
+}, {});
+
+// console.log(namesGrouped);
+
+Object.keys(namesGrouped).forEach((groupKey) => {
+  console.log("-----------", groupKey, "-----------");
+  namesGrouped[groupKey].forEach((name) => console.log(name));
+  console.log();
+});
