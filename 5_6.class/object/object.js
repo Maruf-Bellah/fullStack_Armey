@@ -214,7 +214,6 @@ function uuidv4() {
 //   console.log(i.name);
 // }
 
-
 // Object Over Array=============================
 
 const students = {
@@ -223,7 +222,7 @@ const students = {
     name: "Md Al-Amin",
     email: "alamin@test.com",
   },
- "ebdf6b78-c32b-4b1d-8574-e8c655b05c1e": {
+  "ebdf6b78-c32b-4b1d-8574-e8c655b05c1e": {
     id: "ebdf6b78-c32b-4b1d-8574-e8c655b05c1e",
     name: "Akib Ahmed",
     email: "akib@test.com",
@@ -233,7 +232,7 @@ const students = {
     name: "Elias Emon",
     email: "elias@test.com",
   },
-}
+};
 
 // const std = {
 //   id: uuidv4(),
@@ -242,14 +241,11 @@ const students = {
 // };
 // students[std.id] = std;
 
-
 // console.log(students);
-
-
 
 // update ================
 
-console.log(students);
+// console.log(students);
 
 const idToBeUpdated = "ee729e84-a84e-4adf-b32c-4647a7114d5b";
 const updatedData = {
@@ -262,8 +258,22 @@ students[idToBeUpdated] = {
   ...updatedData,
 };
 
-
 // delete =================
 // delete students[idToBeUpdated]
 
 // console.log(students);
+
+// for (let key in students) {
+//   console.log(students[key].name);
+// }
+
+// কিন্তু এটা একটা ইম্পেরেটিভ ওয়ে। আমরা যখন রিয়্যাক্ট নিয়ে কাজ করবো তখন jsx এ কিন্তু for in ব্যবহার করতে পারবো না। আমাদের দরকার একটা ডিক্লারেটিভ ওয়ে। সেটার জন্য আমরা অবজেক্টের আলোচনায় দুইটা মেথডের কথা বলেছিলাম। একটা ছিল Object.keys() এবং অন্যটা হলো Object.values()। চলুন দেখি এগুলো কিভাবে অ্যাপ্লাই করতে পারি।
+
+// Object.keys(students).forEach((key) => {
+//   const student = students[key];
+//   console.log(student.name);
+// });
+
+Object.values(students).forEach((student) => {
+  console.log(student.name);
+});
