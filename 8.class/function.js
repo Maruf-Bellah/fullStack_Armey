@@ -214,9 +214,85 @@ function time(a, b) {
 const a = 10;
 const b = 20;
 
-const funR = sum(a, b); // 30
-console.log("R1", funR); // 'funR' undefined
-const funR2 = sub(a, b); // -10
-console.log("funR2", funR2); // 'funR2' undefined
-const R = time(funR, funR2); // NaN
-console.log(R); // undefined
+// const funR = sum(a, b); // 30
+// console.log("R1", funR); // 'funR' undefined
+// const funR2 = sub(a, b); // -10
+// console.log("funR2", funR2); // 'funR2' undefined
+// const R = time(funR, funR2); // NaN
+// console.log(R); // undefined
+
+// const r = Math.abs(time(sum(a, b), sub(a, b)));
+// console.log(r);
+
+// Function is a first class citizen. Because we can treat function as a value.
+// Benefits of a function treat as a value:
+// we can store functions in a variable
+
+function testFunction() {
+  console.log("I am atest function");
+}
+
+// we can store function inside a variable ==============
+
+const fn = testFunction;
+// console.log(fn.toString());
+// fn()
+
+// we can store function inside an object / array=============
+
+const arr = [fn, testFunction];
+// console.log(arr[0]());
+// console.log(arr[1]());
+
+// const obj = {
+//     fn:testFunction,
+// }
+// obj.fn()
+
+// we can pass function as an argument
+
+function fnArgument(argu) {
+  return argu();
+}
+// fnArgument(fn)
+
+function fnArgument1(maruf) {
+  return maruf;
+}
+// fnArgument1(fn());
+
+// we can also return a function from another function================
+
+function returnFn() {
+  return testFunction();
+}
+// returnFn()
+
+// ফাংশন কনস্ট্রাকশন বুঝার আগে আমরা একটু আগে নিচের ফাংশনটা দেখি।
+
+// function strToObj(str) {
+//   let obj = {};
+//   for (let s of str) {
+//     if (s !== " ") {
+//       obj[s] = s;
+//     }
+//   }
+//   return obj;
+// }
+
+// console.log(strToObj("Maruf Bellah"));
+
+// এবার এই ফাংশনকে আমরা কন্সট্রাক্টরের মাধ্যমে বানাবো।
+
+const fn2 = new Function(
+  "str",
+  `let obj = {};
+  for (let s of str) {
+    if (s !== " ") {
+      obj[s] = s;
+    }
+  }
+  return obj;`
+);
+
+console.log(fn2('Maruf Bellah'));
