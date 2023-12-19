@@ -296,3 +296,18 @@ const fn2 = new Function(
 );
 
 console.log(fn2('Maruf Bellah'));
+
+// ধরেন আমাদের সার্ভারে একটা CMS আছে। সেখান থেকে ফাংশনের বডি তৈরি করে আমরা ক্লায়েন্টের কাছে পাঠিয়ে দিবো, এটা হলো আমাদের টার্গেট। আমরা একটা অবজেক্ট তৈরি করি এভাবে।
+
+const fData = {
+  params: ['a', 'b'],
+  bodey: ['const r = a+ b', 'return r']
+}
+
+const fBody = fData.bodey.reduce((acc, cur) => {
+  acc += cur + ';';
+  return acc;
+}, '');
+
+const tr = new Function(...fData.params, fBody);
+console.log(tr(100,200));
