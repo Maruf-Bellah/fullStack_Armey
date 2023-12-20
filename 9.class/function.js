@@ -116,7 +116,51 @@ function randomDiv(max) {
   return random1 / random2;
 }
 
-console.log(randomSum(50));
-console.log(randomSub(50));
-console.log(randomMulti(50));
-console.log(randomDiv(50));
+// console.log(randomSum(50));
+// console.log(randomSub(50));
+// console.log(randomMulti(50));
+// console.log(randomDiv(50));
+
+// function sqr(n) {
+//   return n * n;
+
+// }
+
+// console.log(sqr(20));
+
+// function cube(n) {
+//   return n * n * n;
+// };
+// console.log(cube(2));
+
+function power(p) {
+  return function (n) {
+    let result = 1;
+    for (let i = 1; i <= p; i++) {
+      result *= n;
+    }
+    return result;
+  };
+}
+const sqr = power(2);
+const cube = power(3);
+const power8 = power(8);
+// console.log("SQR", sqr);
+// console.log("CUBE", cube);
+// console.log("Power8", power8);
+
+// console.log(cube(2));
+// console.log(cube(3));
+// console.log(cube(4));
+
+
+const a = 10;
+function mostOuter(a) {
+
+  function outer(a) {
+  return  console.log(a);
+  }
+  // console.log(show);
+  return outer();
+}
+mostOuter(a)
