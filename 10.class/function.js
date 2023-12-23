@@ -29,3 +29,21 @@
 // }, 0);
 
 // console.log(8);
+
+
+// callback function ===============
+
+function main() {
+    setTimeout(() => {
+        console.log('load last');
+    }, 2000)
+    setTimeout(() => {
+        console.log('load first');
+    }, 1000);
+    test()
+};
+
+function test() {
+    console.log('test');
+}
+main()
